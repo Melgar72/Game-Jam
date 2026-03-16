@@ -1,0 +1,15 @@
+Top down game
+
+One playable character
+
+Multiple skills to level up
+- Strength/Athletics (gym)
+- Dexterity/Agility (running)
+- Intelligence (reading / studying)
+- Charisma (talking to people / self-help books)
+
+Events/Trials that require skill levels
+
+Minigames that improve skills
+
+Events/Bosses that test skills
