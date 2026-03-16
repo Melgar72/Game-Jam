@@ -15,8 +15,8 @@ class BaseCharacter{
     
     protected:
         // fill in with character spritesheet info
-        Texture2D texture{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_idle_anim_16x16.png")};
-        Texture2D idle{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_idle_anim_16x16.png")};
+        Texture2D texture{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_idle_16x16.png")};
+        Texture2D idle{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_idle_16x16.png")};
         Texture2D run{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_run_16x16.png")};
         Vector2 screenPos{};
         Vector2 worldPos{};
