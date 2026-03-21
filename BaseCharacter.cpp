@@ -27,6 +27,8 @@ void BaseCharacter::tick(float deltaTime)
     worldPosLastFrame = worldPos;
     
     // Update animation frame
+    // BaseCharacter.h has constants set
+    // update constants for diff sprites
     runningTime += deltaTime;
     if (runningTime >= updateTime)
     {
@@ -40,8 +42,31 @@ void BaseCharacter::tick(float deltaTime)
     {
         // Set worldPos = worldPos + direction
         worldPos = Vector2Add(worldPos, Vector2Scale(Vector2Normalize(velocity), speed));
-        velocity.x < 0.f ? rightLeft = -1.f : rightLeft = 1.f; // if / else statement
-        texture = run;
+
+        // Revisit
+        /*
+         * Create idle animation
+         * textures for each direction. 
+         * Update if/else to dictate
+         * direction facing properly.
+         * revisit runVert, weird frame 
+         * flickering and only faces down.
+        */
+        if(velocity.x < 0.f){
+            rightLeft = -1.f;
+            texture = runHoriz;
+        } else if (velocity.x > 0.f){
+            rightLeft = 1.f;
+            texture = runHoriz;
+        }
+
+        if(velocity.y < 0.f){
+            upDown = -1.f;
+            texture = runVert;
+        } else if(velocity.y > 0.f){
+            upDown = 1.f;
+            texture = runVert;
+        }
     }
     else
     {

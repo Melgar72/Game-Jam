@@ -15,20 +15,26 @@ class BaseCharacter{
     
     protected:
         // fill in with character spritesheet info
-        Texture2D texture{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_idle_16x16.png")};
-        Texture2D idle{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_idle_16x16.png")};
-        Texture2D run{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/Adam_run_16x16.png")};
+        // to edit in aseprite, open from GameDev c/ directory
+        // and save to GameJam tiles directory
+        Texture2D texture{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/inProgress/Adam_idle_anim_leftRight_16x16.png")};
+        Texture2D idle{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/inProgress/Adam_idle_anim_leftRight_16x16.png")};
+        Texture2D runVert{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/inProgress/Adam_run_upDown_16x16.png")};
+        Texture2D runHoriz{LoadTexture("tile_sets/Modern tiles_Free/Characters_free/inProgress/Adam_run_leftRight_16x16.png")};
         Vector2 screenPos{};
         Vector2 worldPos{};
         Vector2 worldPosLastFrame{};
 
-        // Facing right: 1
-        // Facing left: -1
+        // Facing right/up: 1
+        // Facing left/down: -1
         float rightLeft{1.f};
+        float upDown{1.f};
+
 
         // Animation variables
         float runningTime{};
-        int frame{};
+        // subdivided png
+        float frame{};
         int maxFrames{6};
         float updateTime{1.f/12.f};
         float speed{4.f};

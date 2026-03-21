@@ -5,8 +5,8 @@
 
 int main(){
     // Window dimensions
-    const int win_width{700};
-    const int win_height{700};
+    const int win_width{1000};
+    const int win_height{1000};
 
     InitWindow(win_width, win_height, "Summer Training");
     SetTargetFPS(60);
