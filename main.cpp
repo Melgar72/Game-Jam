@@ -1,6 +1,8 @@
 #include "raylib.h"
+#include "gui.h"
 #include "raymath.h"
 #include "Character.h"
+#include <cstdlib>
 #include <string>
 
 int main(){
@@ -19,6 +21,10 @@ int main(){
     // Set character
     Character player{win_width, win_height};
 
+    // progress bar
+    // from gui.h
+    Gui progressBar;
+
     // fill...
 
     // Game window is open
@@ -30,6 +36,10 @@ int main(){
         // Draw map
         mapPos = Vector2Scale(player.getWorldPos(), -1.f);
         DrawTextureEx(map, mapPos, 0.0, mapScale, WHITE);
+
+        // Basic player UI
+        progressBar.createProgressBar();
+        progressBar.updateProgressBar();
 
         // Update frames on player
         player.tick(GetFrameTime());
