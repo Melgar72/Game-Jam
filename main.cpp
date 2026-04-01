@@ -2,6 +2,7 @@
 #include "gui.h"
 #include "raymath.h"
 #include "Character.h"
+#include "miniGames.h"
 #include <cstdlib>
 #include <string>
 
@@ -23,9 +24,11 @@ int main(){
 
     // progress bars
     // from gui.h
-
     Gui progressBar;
     AbilityScoreGui strengthProgBar;
+
+    // mini game
+    GenericTimingGame game;
 
     // fill...
 
@@ -46,6 +49,13 @@ int main(){
         // Ability Score UI
         strengthProgBar.createProgressBar();
         strengthProgBar.updateProgressBar(progressBar);
+
+        // MiniGame UI (add if statement to proc)
+        Rectangle bigBar = game.createGameBar();
+        // game.createCursorBar(game.createGameBar());
+        Rectangle smallBar = game.createCursorBar(bigBar);
+        // game.moveCursorBarPos(game.createCursorBar(game.createGameBar(),));
+        game.moveCursorBarPos(bigBar, smallBar);
 
         // Update frames on player
         player.tick(GetFrameTime());

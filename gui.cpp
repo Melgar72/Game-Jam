@@ -4,10 +4,14 @@
 
 //
 //  Test GUI Display
+//  
+//  Can be repurposed for:
+// 
+//  Day Night Cycle
+//  Generic bar/meter for minigames
 //
 
-Gui::Gui()
-{
+Gui::Gui(){
 
 }
 
@@ -33,7 +37,10 @@ void Gui::createProgressBar(){
 
 void Gui::updateProgressBar(){
     // Test update progressbar
-    if(progress < 1.0){progress += 0.01;};
+    if(progress < 1.0){progress += 0.01;}
+    // Comment out when testing 
+    // AbilityScoreGui::updateProgressBar(Gui x)
+    else(progress = 0.0); 
 }
 
 
@@ -68,11 +75,17 @@ void AbilityScoreGui::createProgressBar(){
 }
 
 void AbilityScoreGui::updateProgressBar(Gui x){
-    if(x.progress > 0.5){
+    if(x.progress > 1.0){
         progress += .01;
         if(progress > 1.0){
             progress = 0.0;
         }
-        x.progress = 0.f;
+        // Check with Grant
+        // Modifying values of variables
+        // from other functions. 
+        // The below variable belongs to 
+        // Gui and can be read, but can't/won't 
+        // update. 
+        //x.progress = 0.0;
     }
 }
