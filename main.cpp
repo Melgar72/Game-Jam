@@ -21,9 +21,11 @@ int main(){
     // Set character
     Character player{win_width, win_height};
 
-    // progress bar
+    // progress bars
     // from gui.h
+
     Gui progressBar;
+    AbilityScoreGui strengthProgBar;
 
     // fill...
 
@@ -40,6 +42,10 @@ int main(){
         // Basic player UI
         progressBar.createProgressBar();
         progressBar.updateProgressBar();
+
+        // Ability Score UI
+        strengthProgBar.createProgressBar();
+        strengthProgBar.updateProgressBar(progressBar);
 
         // Update frames on player
         player.tick(GetFrameTime());

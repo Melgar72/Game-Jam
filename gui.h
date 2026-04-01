@@ -4,10 +4,21 @@
 
 class Gui{
     public:
+        // Progress bar
         Gui();
         float progress{0.f};
         void createProgressBar();
         void updateProgressBar();
+};
+
+class AbilityScoreGui{
+    public:
+        // Progress bars for ability scores
+        AbilityScoreGui();
+        float progress{0.f};
+        void createProgressBar();
+        void updateProgressBar(Gui);
+
 };
 
 #endif

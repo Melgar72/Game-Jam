@@ -13,6 +13,8 @@ class BaseCharacter{
         // bool getAlive(){return alive;}
         // void setAlive(bool isAlive){alive = isAlive;}
     
+    // protected: can be modified in this class
+    // and from inheriting classes (character.h)
     protected:
         // fill in with character spritesheet info
         // to edit in aseprite, open from GameDev c/ directory
@@ -42,6 +44,11 @@ class BaseCharacter{
         float height{};
         float scale{4.0f};
         Vector2 velocity{};
+
+        // Stat Block
+        int strength{0};
+        int agility{0};
+        int intelligence{0};
 
     private:
         bool alive{true};
