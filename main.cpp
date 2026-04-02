@@ -80,6 +80,8 @@ int main(){
         // Need to move character prior to unpausing,
         // or give grace period from intera
         if(minigameCollision){
+            // Pause player movement
+            
             // MiniGame UI (add if statement to proc)
             Rectangle bigBar = game.createGameBar();
             // game.createCursorBar(game.createGameBar());
