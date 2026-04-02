@@ -3,6 +3,7 @@
 #include "raymath.h"
 #include "Character.h"
 #include "miniGames.h"
+#include "MiniGameZones.h"
 #include <cstdlib>
 #include <string>
 
@@ -29,6 +30,13 @@ int main(){
 
     // mini game
     GenericTimingGame game;
+    // ignoring the minigame class
+    // MiniGameZones miniGameZone;
+    Texture2D standin = LoadTexture("tile_sets/Modern tiles_free/Characters_free/inProgress/standin.png");
+    Vector2 standinPos{0.0, 0.0};
+
+    // check collision between character and minigame
+    bool minigameCollision = false;
 
     // fill...
 
@@ -50,12 +58,35 @@ int main(){
         strengthProgBar.createProgressBar();
         strengthProgBar.updateProgressBar(progressBar);
 
-        // MiniGame UI (add if statement to proc)
-        Rectangle bigBar = game.createGameBar();
-        // game.createCursorBar(game.createGameBar());
-        Rectangle smallBar = game.createCursorBar(bigBar);
-        // game.moveCursorBarPos(game.createCursorBar(game.createGameBar(),));
-        game.moveCursorBarPos(bigBar, smallBar);
+        // Draw minigame zone
+        // miniGameZone.makeZone();
+        // refactor below to make it work from the class
+        Rectangle standinRec = Rectangle{standinPos.x, standinPos.y, standin.width * mapScale, standin.height * mapScale};
+        standinPos = Vector2Scale(player.getWorldPos(), -1.f) + Vector2{1000.0, 500.0};
+        DrawTextureEx(standin, standinPos, 0.0, 4.0, WHITE);
+
+
+        // minigame check
+        // minigameCollision = CheckCollisionRecs(player.GetCollisionRec(), miniGameZone.makeZone());
+        //
+        // Need rectangle for below
+        minigameCollision = CheckCollisionRecs(player.GetCollisionRec(), standinRec);
+
+        // future problems:
+        // Need to pause movement when in minigame
+        // If paused, we need to break out of game on completion
+        // When completed, unpause
+        // When unpaused though, we'll still be colliding
+        // Need to move character prior to unpausing,
+        // or give grace period from intera
+        if(minigameCollision){
+            // MiniGame UI (add if statement to proc)
+            Rectangle bigBar = game.createGameBar();
+            // game.createCursorBar(game.createGameBar());
+            Rectangle smallBar = game.createCursorBar(bigBar);
+            // game.moveCursorBarPos(game.createCursorBar(game.createGameBar(),));
+            game.moveCursorBarPos(bigBar, smallBar);
+        };
 
         // Update frames on player
         player.tick(GetFrameTime());

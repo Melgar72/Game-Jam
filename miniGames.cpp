@@ -53,4 +53,3 @@ void GenericTimingGame::moveCursorBarPos(Rectangle r, Rectangle c){
 
     
 }
-
