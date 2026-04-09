@@ -51,11 +51,11 @@ int main(){
         DrawTextureEx(map, mapPos, 0.0, mapScale, WHITE);
 
         // Basic player UI
-        progressBar.createProgressBar();
+        progressBar.createProgressBar(win_width, win_height);
         progressBar.updateProgressBar();
 
         // Ability Score UI
-        strengthProgBar.createProgressBar();
+        strengthProgBar.createProgressBar(win_width, win_height);
         strengthProgBar.updateProgressBar(progressBar);
 
         // Draw minigame zone
@@ -83,7 +83,7 @@ int main(){
             // Pause player movement
             
             // MiniGame UI (add if statement to proc)
-            Rectangle bigBar = game.createGameBar();
+            Rectangle bigBar = game.createGameBar(win_width, win_height);
             // game.createCursorBar(game.createGameBar());
             Rectangle smallBar = game.createCursorBar(bigBar);
             // game.moveCursorBarPos(game.createCursorBar(game.createGameBar(),));

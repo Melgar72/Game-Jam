@@ -15,11 +15,11 @@ Gui::Gui(){
 
 }
 
-void Gui::createProgressBar(){
+void Gui::createProgressBar(int win_width, int win_height){
     // struct Rect. {x, y, width, height}
     // get window dimensions from main
     // later set window dimensions in separate file
-    Rectangle progressBar = {0, 900, 100, 50};
+    Rectangle progressBar = {0, win_height / 1.1, 100, 50};
     // Draw progress bar background
     DrawRectangleRec(progressBar, LIGHTGRAY);
     // Draw border
@@ -54,11 +54,11 @@ AbilityScoreGui::AbilityScoreGui(){
 // could probably make just one instead of 
 // per ability. make it take inputs (like position and 
 // ability name). 
-void AbilityScoreGui::createProgressBar(){
+void AbilityScoreGui::createProgressBar(int win_width, int win_height){
     // struct Rect. {x, y, width, height}
     // get window dimensions from main
     // later set window dimensions in separate file
-    Rectangle strengthProgBar = {150, 900, 100, 50};
+    Rectangle strengthProgBar = {win_width / 8, win_height / 1.1, 100, 50};
     // Draw bar background
     DrawRectangleRec(strengthProgBar, LIGHTGRAY);
     // Draw border

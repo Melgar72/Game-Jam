@@ -7,7 +7,7 @@ class Gui{
         // Progress bar
         Gui();
         float progress{0.f};
-        void createProgressBar();
+        void createProgressBar(int win_width, int win_height);
         void updateProgressBar();
 };
 
@@ -16,7 +16,7 @@ class AbilityScoreGui{
         // Progress bars for ability scores
         AbilityScoreGui();
         float progress{0.f};
-        void createProgressBar();
+        void createProgressBar(int win_width, int win_height);
         void updateProgressBar(Gui);
 
 };

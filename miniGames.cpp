@@ -7,7 +7,7 @@ GenericTimingGame::GenericTimingGame(){
 
 }
 
-Rectangle GenericTimingGame::createGameBar(){
+Rectangle GenericTimingGame::createGameBar(int win_width, int win_height){
     // struct Rect. {x, y, width, height}
     // get window dimensions from main
     // later set window dimensions in separate file.
@@ -15,7 +15,9 @@ Rectangle GenericTimingGame::createGameBar(){
     // have createGameBar take values in function call
     // for window dimensions
     // and set gameBar rectangle in relation to those
-    Rectangle gameBar = {250, 200, 300, 100};
+    float gbWidth = 300.f;
+    float gbHeight = 100.f;
+    Rectangle gameBar = {((1.f/2.f) * win_width) - ((1.f/2.f) * gbWidth), 200, gbWidth, gbHeight};
     // Draw gameBar background
     DrawRectangleRec(gameBar, BLACK);
     // Draw border

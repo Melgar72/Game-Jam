@@ -22,7 +22,7 @@ class GenericTimingGame{
         int cursorBarPos{0};
         int cursorPosToggle{0};
         int cursorPosSpeed{5};
-        Rectangle createGameBar();
+        Rectangle createGameBar(int win_width, int win_height);
         Rectangle createCursorBar(Rectangle);
         void moveCursorBarPos(Rectangle, Rectangle);
 };
